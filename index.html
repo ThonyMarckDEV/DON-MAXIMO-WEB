@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Scroll Effect</title>
+    <title>Sección Desplazable</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -16,10 +16,38 @@
         </ul>
     </nav>
 
-    <img src="/img/DMlogo.png" alt="Logo" class="logoDM">
+    <div id="home" class="section home-section">
+        <img src="/img/DMlogo.png" alt="Logo" class="logoDM">
+        <div class="pizza-container">
+            <img src="/img/pizza.png" alt="Pizza" class="pizza">
+        </div>
+        <button class="scroll-btn" data-target="#about" style="margin-top: 70px;">
+            <img src="/img/flecha.png" alt="Arrow">
+        </button>
+    </div>
 
-    <div class="pizza-container">
-        <img src="/img/pizza.png" alt="Pizza" class="pizza">
+    <div id="about" class="section">
+        <h1>About</h1>
+        <p>Learn more about us.</p>
+        <button class="scroll-btn" data-target="#services">
+            <img src="/img/flecha.png" alt="Arrow">
+        </button>
+    </div>
+
+    <div id="services" class="section">
+        <h1>Services</h1>
+        <p>Check out our services.</p>
+        <button class="scroll-btn" data-target="#contact">
+            <img src="/img/flecha.png" alt="Arrow">
+        </button>
+    </div>
+
+    <div id="contact" class="section">
+        <h1>Contact</h1>
+        <p>Get in touch with us.</p>
+        <button class="scroll-btn" data-target="#home">
+            <img src="/img/flechaarriba.png" alt="Arrow">
+        </button>
     </div>
 
     <script src="/js/script.js"></script>
