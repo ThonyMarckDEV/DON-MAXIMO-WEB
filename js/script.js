@@ -33,16 +33,6 @@ document.querySelectorAll('.scroll-btn').forEach(button => {
         // Ajustar la pizza cuando se haga clic
         adjustPizzaPosition();
 
-        // Ajustar la pizza en cada evento de scroll
-        const onScroll = () => {
-            adjustPizzaPosition();
-            // Opcional: Remover el event listener después de un tiempo para evitar ajustes continuos innecesarios
-            setTimeout(() => {
-                window.removeEventListener('scroll', onScroll);
-            }, 1000); // Ajusta el tiempo según sea necesario
-        };
-
-        window.addEventListener('scroll', onScroll);
 
         // Al hacer clic en el botón para volver a la primera sección
         if (this.getAttribute('data-target') === '#home') {

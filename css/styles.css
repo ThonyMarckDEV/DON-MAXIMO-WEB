@@ -18,6 +18,7 @@ body {
     align-items: center;
     width: 700px;
     margin-top: 250px;
+    margin-left: -90px;
     height: auto;
     z-index: 1000; /* Asegura que esté encima de todo */
 }
@@ -41,6 +42,8 @@ body {
     }
 }
 
+/*======================================================================================*/
+/*BARRA NAVEGACION*/
 .navbar {
     background-color: rgba(255, 255, 255, 0.014); /* Fondo semi-transparente */
     position: fixed;
@@ -73,7 +76,11 @@ body {
 .navbar ul li a:hover {
     color: orange;
 }
+/*======================================================================================*/
+/*BARRA NAVEGACION*/
 
+/*======================================================================================*/
+/*SECCION*/
 .section {
     position: relative;
     width: 100%;
@@ -86,7 +93,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+/*======================================================================================*/
+/*SECCION*/
 
+/*======================================================================================*/
+/*BOTON SCROLL*/
 .scroll-btn {
     width: 60px; /* Ancho del botón */
     height: 60px; /* Alto del botón, igual al ancho para hacerlo circular */
@@ -96,9 +107,9 @@ body {
     bottom: 20px;
     padding: 10px 20px;
     color: #fff;
-    border: none; /* Sin borde */
     cursor: pointer;
     font-size: 16px;
+    animation: bounce 2s ease infinite; /* Aplica la animación */
 }
 
 .scroll-btn:hover {
@@ -110,3 +121,73 @@ body {
     height: 40px; /* Ajusta la altura de la imagen al 80% del botón */
     margin-left: -10px;
 }
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px); /* Mueve el botón hacia arriba */
+    }
+    60% {
+        transform: translateY(-10px); /* Mueve el botón hacia arriba, pero menos */
+    }
+}
+/*======================================================================================*/
+/*BOTON SCROLL*/
+/*======================================================================================*/
+/*SECCION LOCAL*/
+.local-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px;
+    position: relative;
+}
+
+.local-images img {
+    width: 200px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+    border: 10px solid white; /* Bordes de la imagen */
+    border-radius: 10px; /* Bordes redondeados para simular fotos instantáneas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área del contenedor sin distorsionarse */
+    transition: transform 0.3s ease-in-out; /* Transición para efectos de hover */
+}
+
+.local-images img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente la imagen al pasar el ratón */
+}
+
+/* Alineación de las imágenes */
+.local-images img:nth-child(1),
+.local-images img:nth-child(2) {
+    margin-right: 20px; /* Espacio entre las imágenes */
+}
+
+.local-images img:nth-child(3),
+.local-images img:nth-child(4) {
+    margin-left: 20px; /* Espacio entre las imágenes */
+}
+
+.local-images img:nth-child(1),
+.local-images img:nth-child(3) {
+    /* Imágenes a la izquierda */
+    align-self: flex-start;
+}
+
+.local-images img:nth-child(2),
+.local-images img:nth-child(4) {
+    /* Imágenes a la derecha */
+    align-self: flex-end;
+}
+
+.text1local{
+    color: white;
+}
+
+/*======================================================================================*/
+/*SECCION LOCAL*/
