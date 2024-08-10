@@ -4,7 +4,7 @@ document.querySelectorAll('.scroll-btn').forEach(button => {
         const pizza = document.querySelector('.pizza');
 
         // Valor para ajustar cuánto sube la pizza
-        const pizzaOffset = 250; // Ajusta este valor para definir cuánto se mueve la pizza
+        const pizzaOffset = 250; // Movimiento de la pizza
 
         // Desplazar la vista suavemente a la sección objetivo
         target.scrollIntoView({ behavior: 'smooth' });
@@ -43,4 +43,23 @@ document.querySelectorAll('.scroll-btn').forEach(button => {
             }
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const deliverySection = document.querySelector('#delivery');
+    const deliveryMessage = document.querySelector('.delivery-message');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                deliveryMessage.classList.add('visible'); // Añade la clase para mostrar el mensaje
+            } else {
+                deliveryMessage.classList.remove('visible'); // Quita la clase para ocultar el mensaje
+            }
+        });
+    }, {
+        threshold: 0.5 // Activar mensaje
+    });
+
+    observer.observe(deliverySection);
 });
