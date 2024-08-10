@@ -12,12 +12,14 @@ body {
 }
 
 .pizza-container {
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 700px;
+    margin-top: 250px;
     height: auto;
+    z-index: 1000; /* Asegura que esté encima de todo */
 }
 
 .pizza {
@@ -27,13 +29,27 @@ body {
     animation: floating 3s ease-in-out infinite; /* Animación de flotación continua */
 }
 
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Mueve la pizza hacia arriba */
+    }
+    100% {
+        transform: translateY(0); /* Vuelve a la posición original */
+    }
+}
+
 .navbar {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.014); /* Fondo semi-transparente */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     padding: 20px;
+    backdrop-filter: blur(10px); /* Aplica el desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
 }
 
 .navbar ul {
@@ -54,21 +70,21 @@ body {
     text-decoration: none;
 }
 
+.navbar ul li a:hover {
+    color: orange;
+}
+
 .section {
     position: relative;
     width: 100%;
     height: 100vh;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo con opacidad */
+    background: url("/img/background.jpg") no-repeat center center; /* Fondo para todas las secciones */
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.home-section {
-    background: url("/img/background.jpg") no-repeat center center/cover;
-    z-index: 5;
 }
 
 .scroll-btn {
