@@ -16,9 +16,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 700px;
+    width: 500px;
     margin-top: 250px;
-    margin-left: -90px;
+    margin-left: -20px;
     height: auto;
     z-index: 1000; /* Asegura que esté encima de todo */
 }
@@ -135,6 +135,7 @@ body {
 }
 /*======================================================================================*/
 /*BOTON SCROLL*/
+
 /*======================================================================================*/
 /*SECCION LOCAL*/
 .local-images {
@@ -189,5 +190,70 @@ body {
     color: white;
 }
 
+.map-link {
+    margin-top: 20px; /* Espacio superior para el ícono */
+}
+
+.map-icon {
+    width: 40px; /* Tamaño del ícono */
+    height: 40px;
+    box-shadow: #575757;
+    box-shadow: 100px;
+    border-radius: 5px; /* Bordes redondeados opcional */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.map-icon:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el ratón */
+}
+
 /*======================================================================================*/
 /*SECCION LOCAL*/
+
+
+/*======================================================================================*/
+/*SECCION DELIVEY*/
+.text1delivery{
+    color: white;
+}
+
+.cajapizza{
+    height: 750px;
+    width: 1100px;
+    margin-top: -20px;
+}
+
+.delivery-message {
+    position: fixed;
+    top: 50%;
+    margin-left: 800px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 500; /* Asegura que el mensaje esté encima de otros elementos */
+    opacity: 0; /* Oculto por defecto */
+    visibility: hidden; /* Asegura que el mensaje no sea interactivo cuando está oculto */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Transiciones suaves */
+}
+
+.delivery-message.visible {
+    opacity: 1; /* Totalmente visible */
+    visibility: visible; /* Asegura que el mensaje sea interactivo cuando está visible */
+}
+/*======================================================================================*/
+/*SECCION DELIVEY*/
+
+
+/*======================================================================================*/
+/*SECCION CONTACTO*/
+.text1contacto{
+    color: white;
+}
+
+/*======================================================================================*/
+/*SECCION CONTACTO*/
+

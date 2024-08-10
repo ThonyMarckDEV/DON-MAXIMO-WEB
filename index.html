@@ -9,10 +9,10 @@
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="#home"><strong>Home</strong></a></li>
-            <li><a href="#about"><strong>About</strong></a></li>
-            <li><a href="#services"><strong>Services</strong></a></li>
-            <li><a href="#contact"><strong>Contact</strong></a></li>
+            <li><a href="#home"><strong>INICIO</strong></a></li>
+            <li><a href="#local"><strong></strong></a></li>
+            <li><a href="#delivery"><strong></strong></a></li>
+            <li><a href="#contact"><strong></strong></a></li>
         </ul>
     </nav>
 
@@ -34,20 +34,29 @@
             <img src="/img/local3.jpg" alt="Local Image 3"> <!-- Imagen a la derecha -->
             <img src="/img/local4.jpg" alt="Local Image 4"> <!-- Imagen a la derecha -->
         </div>
-        <button class="scroll-btn" data-target="#services" style="margin-top: 450px;">
+        <div class="map-link">
+            <a href="https://maps.app.goo.gl/9MkCUPu2kgWLun3MA" target="_blank">
+                <img src="/img/google-maps-icon.png" alt="Google Maps Icon" class="map-icon">
+            </a>
+        </div>
+        <button class="scroll-btn" data-target="#delivery" style="margin-top: 390px;">
             <img src="/img/flecha.png" alt="Arrow">
         </button>
     </div>
 
-    <div id="services" class="section">
-        <h1>Services</h1>
-        <button class="scroll-btn" data-target="#contact"  style="margin-top: 700px;">
+    <div id="delivery" class="section">
+        <h1 class="text1delivery">O...</h1>
+        <img src="/img/cajapizza.png" class="cajapizza">
+        
+        <div class="delivery-message">¡PÍDELA POR DELIVERY!</div>
+        
+        <button class="scroll-btn" data-target="#contacto" style="margin-top: -10px;">
             <img src="/img/flecha.png" alt="Arrow">
         </button>
     </div>
 
-    <div id="contact" class="section">
-        <h1>Contact</h1>
+    <div id="contacto" class="section">
+        <h1 class="text1contacto">Contacto</h1>
         <button class="scroll-btn" data-target="#home"  style="margin-top: 700px">
             <img src="/img/flechaarriba.png" alt="Arrow">
         </button>
