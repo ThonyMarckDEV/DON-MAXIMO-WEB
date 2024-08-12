@@ -84,8 +84,9 @@ body {
 .section {
     position: relative;
     width: 100%;
+    top: 10px;
     height: 100vh;
-    padding: 20px;
+    /*padding: 20px;*/
     background: url("/img/background.jpg") no-repeat center center; /* Fondo para todas las secciones */
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     display: flex;
@@ -102,9 +103,9 @@ body {
     width: 60px; /* Ancho del botón */
     height: 60px; /* Alto del botón, igual al ancho para hacerlo circular */
     border-radius: 50%; /* Hace el botón circular */
-    margin-top: 600px;
+    margin-top: 0px;
     border: none; /* Sin borde */
-    bottom: 20px;
+    bottom: 0px;
     padding: 10px 20px;
     color: #fff;
     cursor: pointer;
@@ -316,6 +317,7 @@ body {
 /*SECCION CONTACTO*/
 .text1contacto{
     color: white;
+    margin-top: 50px;
 }
 
 /*======================================================================================*/
