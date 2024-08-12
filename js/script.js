@@ -92,3 +92,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(homeSection);
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const localSection = document.querySelector("#local");
+    const tenedorSerruchoContainer = document.querySelector(".tenedor-serrucho-container");
+    const sectionPosition = localSection.getBoundingClientRect();
+
+    if (sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerHeight) {
+        tenedorSerruchoContainer.style.display = "block";
+    } else {
+        tenedorSerruchoContainer.style.display = "none";
+    }
+});

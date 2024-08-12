@@ -334,3 +334,17 @@ body {
     z-index: 2000; /* Asegura que estén por encima de otros elementos */
     opacity: 1; /* Manteles semi-transparentes */
 }
+
+
+.tenedor-serrucho-container {
+    position: fixed;
+    top: 10px;
+    left: -200px;
+    display: none; /* Oculta la imagen inicialmente */
+    z-index: 3000;
+}
+
+.tenedor-serrucho {
+    width: 600px; /* Ajusta el tamaño según sea necesario */
+    transform: rotate(-240deg); /* Rotación diagonal */
+}
