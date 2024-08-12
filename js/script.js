@@ -87,21 +87,88 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, {
-        threshold: 0.5 // Se activa cuando el 50% de la sección 'home' está visible
+        threshold: 1 // Se activa cuando el 50% de la sección 'home' está visible
     });
 
     observer.observe(homeSection);
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const localSection = document.querySelector("#local");
-    const tenedorSerruchoContainer = document.querySelector(".tenedor-serrucho-container");
-    const sectionPosition = localSection.getBoundingClientRect();
+document.addEventListener('DOMContentLoaded', function () {
+    const homeSection = document.querySelector('#local');
+    const tenedor = document.querySelector('.tenedor');
 
-    if (sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerHeight) {
-        tenedorSerruchoContainer.style.display = "block";
-    } else {
-        tenedorSerruchoContainer.style.display = "none";
-    }
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Reinicia la animación de entrada en diagonal
+                tenedor.classList.remove('hidden');
+                void tenedor.offsetWidth; // Fuerza reflujo para reiniciar la animación
+                tenedor.style.animation = 'enter-diagonal 1s ease-in-out forwards';
+            } else {
+                // Aplica la animación de salida en diagonal
+                tenedor.style.animation = 'exit-diagonal 1s ease-in-out forwards';
+                setTimeout(() => {
+                    tenedor.classList.add('hidden'); // Oculta la imagen después de la animación
+                }, 1000); // La duración debe coincidir con la duración de la animación de salida
+            }
+        });
+    }, {
+        threshold: 1 // Se activa cuando el 50% de la sección 'local' está visible
+    });
+
+    observer.observe(homeSection);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const homeSection = document.querySelector('#delivery');
+    const tenedor = document.querySelector('.delivery');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Reinicia la animación de entrada en diagonal
+                tenedor.classList.remove('hidden');
+                void tenedor.offsetWidth; // Fuerza reflujo para reiniciar la animación
+                tenedor.style.animation = 'enter-diagonal-deli 1s ease-in-out forwards';
+            } else {
+                // Aplica la animación de salida en diagonal
+                tenedor.style.animation = 'exit-diagonal-deli 1s ease-in-out forwards';
+                setTimeout(() => {
+                    tenedor.classList.add('hidden'); // Oculta la imagen después de la animación
+                }, 1000); // La duración debe coincidir con la duración de la animación de salida
+            }
+        });
+    }, {
+        threshold: 1 // Se activa cuando el 50% de la sección 'local' está visible
+    });
+
+    observer.observe(homeSection);
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const homeSection = document.querySelector('#contacto');
+    const tenedor = document.querySelector('.llamando');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Reinicia la animación de entrada en diagonal
+                tenedor.classList.remove('hidden');
+                void tenedor.offsetWidth; // Fuerza reflujo para reiniciar la animación
+                tenedor.style.animation = 'enter-diagonal-persona 1s ease-in-out forwards';
+            } else {
+                // Aplica la animación de salida en diagonal
+                tenedor.style.animation = 'exit-diagonal-persona 1s ease-in-out forwards';
+                setTimeout(() => {
+                    tenedor.classList.add('hidden'); // Oculta la imagen después de la animación
+                }, 1000); // La duración debe coincidir con la duración de la animación de salida
+            }
+        });
+    }, {
+        threshold: 1 // Se activa cuando el 50% de la sección 'local' está visible
+    });
+
+    observer.observe(homeSection);
 });
