@@ -11,6 +11,11 @@ body {
     height: 400px;
 }
 
+/* Clase para desactivar la animación inicialmente */
+.no-animation {
+    animation: none !important;
+}
+
 .pizza-container {
     position: fixed;
     display: flex;
@@ -272,6 +277,47 @@ body {
     z-index: 3000;
 }
 
+.tenedor {
+    position: fixed;
+    top: 10px;
+    left: -210px; /* Inicia fuera de la pantalla a la izquierda */
+    z-index: 3000;
+    animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+}
+
+.tenedor-serrucho {
+    width: 600px;
+    transform: rotate(-190deg); /* Mantén la rotación diagonal */
+}
+
+/* Animación de entrada en diagonal de izquierda a derecha */
+@keyframes enter-diagonal {
+    0% {
+        opacity: 0;
+        transform: translate(-300px, 300px) rotate(-45deg); /* Inicia desde fuera de la pantalla a la izquierda */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+    }
+}
+
+/* Animación de desaparición en diagonal hacia abajo */
+@keyframes exit-diagonal {
+    0% {
+        opacity: 1;
+        transform: translate(0px, 0px) rotate(-45deg); /* Inicia desde su posición final */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-300px, 300px) rotate(-45deg); /* Termina fuera de la pantalla en diagonal */
+    }
+}
+
+.hidden {
+    display: none;
+}
+
 /*======================================================================================*/
 /*SECCION LOCAL*/
 
@@ -309,6 +355,49 @@ body {
     opacity: 1; /* Totalmente visible */
     visibility: visible; /* Asegura que el mensaje sea interactivo cuando está visible */
 }
+
+
+.delivery {
+    position: fixed;
+    top: 50px;
+    left: -50px; /* Inicia fuera de la pantalla a la izquierda */
+    z-index: 3000;
+    animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+}
+
+.delivery-moto{
+    width: 450px;
+    transform: rotate(-300deg); /* Mantén la rotación diagonal */
+}
+
+/* Animación de entrada en diagonal de izquierda a derecha */
+@keyframes enter-diagonal-deli {
+    0% {
+        opacity: 0;
+        transform: translate(-300px, 300px) rotate(-45deg); /* Inicia desde fuera de la pantalla a la izquierda */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+    }
+}
+
+/* Animación de desaparición en diagonal hacia abajo */
+@keyframes exit-diagonal-deli {
+    0% {
+        opacity: 1;
+        transform: translate(0px, 0px) rotate(-45deg); /* Inicia desde su posición final */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-300px, 300px) rotate(-45deg); /* Termina fuera de la pantalla en diagonal */
+    }
+}
+
+.hidden {
+    display: none;
+}
+
 /*======================================================================================*/
 /*SECCION DELIVEY*/
 
@@ -319,6 +408,50 @@ body {
     color: white;
     margin-top: 50px;
 }
+
+
+.llamando {
+    position: fixed;
+    top: 90px;
+    left: -130px; /* Inicia fuera de la pantalla a la izquierda */
+    z-index: 3000;
+    animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+}
+
+.llamando-persona{
+    width: 490px;
+    transform: rotate(-280deg); /* Mantén la rotación diagonal */
+}
+
+/* Animación de entrada en diagonal de izquierda a derecha */
+@keyframes enter-diagonal-persona {
+    0% {
+        opacity: 0;
+        transform: translate(-300px, 300px) rotate(-45deg); /* Inicia desde fuera de la pantalla a la izquierda */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+    }
+}
+
+/* Animación de desaparición en diagonal hacia abajo */
+@keyframes exit-diagonal-persona {
+    0% {
+        opacity: 1;
+        transform: translate(0px, 0px) rotate(-45deg); /* Inicia desde su posición final */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-300px, 300px) rotate(-45deg); /* Termina fuera de la pantalla en diagonal */
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
 
 /*======================================================================================*/
 /*SECCION CONTACTO*/
@@ -335,15 +468,4 @@ body {
     opacity: 1; /* Manteles semi-transparentes */
 }
 
-.tenedor-serrucho-container {
-    position: fixed;
-    top: 10px;
-    left: -200px;
-    display: none; /* Oculta la imagen inicialmente */
-    z-index: 3000;
-}
-
-.tenedor-serrucho {
-    width: 600px; /* Ajusta el tamaño según sea necesario */
-    transform: rotate(-240deg); /* Rotación diagonal */
-}
+/*======================================================================================*/
