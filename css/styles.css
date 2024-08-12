@@ -87,7 +87,7 @@ body {
     top: 10px;
     height: 100vh;
     /*padding: 20px;*/
-    background: url("/img/background.jpg") no-repeat center center; /* Fondo para todas las secciones */
+    background: url("../img/background.jpg") no-repeat center center; /* Fondo para todas las secciones */
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     display: flex;
     flex-direction: column;
