@@ -6,6 +6,10 @@ body {
     scroll-behavior: smooth; /* Suaviza el desplazamiento en todo el documento */
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .logoDM {
     margin-top: 10px;
     height: 400px;
@@ -92,7 +96,7 @@ body {
     top: 10px;
     height: 100vh;
     /*padding: 20px;*/
-    background: url("/img/background.jpg") no-repeat center center; /* Fondo para todas las secciones */
+    background: url("../img/background.jpg") no-repeat center center; /* Fondo para todas las secciones */
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     display: flex;
     flex-direction: column;
@@ -164,7 +168,7 @@ body {
     }
     100% {
         opacity: 1;
-        transform: translate(50px, 50px) rotate(45deg);
+        transform: translate(50px, 10px) rotate(30deg);
     }
 }
 
@@ -172,7 +176,7 @@ body {
 @keyframes fadeOut {
     0% {
         opacity: 1;
-        transform: translate(50px, 50px) rotate(45deg);
+        transform: translate(50px, 10px) rotate(30deg);
     }
     100% {
         opacity: 0;
