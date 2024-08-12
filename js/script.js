@@ -63,3 +63,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(deliverySection);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const homeSection = document.querySelector('#home');
+    const spices = document.querySelectorAll('.spice');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                spices.forEach(spice => {
+                    // Reinicia la animación
+                    spice.classList.remove('hidden'); // Quita la clase 'hidden'
+                    void spice.offsetWidth; // Fuerza reflujo para reiniciar la animación
+                    spice.style.animation = 'fall 1s ease-in-out forwards'; // Aplica la animación de aparición
+                });
+            } else {
+                spices.forEach(spice => {
+                    spice.style.animation = 'fadeOut 1s ease-in-out forwards'; // Aplica la animación de desaparición
+                    setTimeout(() => {
+                        spice.classList.add('hidden'); // Oculta las especias después de la animación
+                    }, 1000); // La duración debe coincidir con la duración de la animación de desaparición
+                });
+            }
+        });
+    }, {
+        threshold: 0.5 // Se activa cuando el 50% de la sección 'home' está visible
+    });
+
+    observer.observe(homeSection);
+});

@@ -18,9 +18,9 @@ body {
     align-items: center;
     width: 500px;
     margin-top: 250px;
-    margin-left: -20px;
+    margin-left: -10px;
     height: auto;
-    z-index: 1000; /* Asegura que esté encima de todo */
+    z-index: 3500; /* Asegura que esté encima de todo */
 }
 
 .pizza {
@@ -49,7 +49,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 3000;
     padding: 20px;
     backdrop-filter: blur(10px); /* Aplica el desenfoque */
     -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
@@ -110,6 +110,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     animation: bounce 2s ease infinite; /* Aplica la animación */
+    z-index: 3000;
 }
 
 .scroll-btn:hover {
@@ -137,6 +138,65 @@ body {
 /*BOTON SCROLL*/
 
 /*======================================================================================*/
+/*SECCION HOME */
+/* Contenedor de especias */
+.spices-container {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; /* Espacio entre las imágenes */
+    z-index: 3000; /* Asegura que esté encima de otros elementos */
+}
+/* Animación de aparición en diagonal */
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translate(-200px, -200px) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(50px, 50px) rotate(45deg);
+    }
+}
+
+/* Animación de desaparición */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(50px, 50px) rotate(45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-200px, -200px) rotate(0deg);
+    }
+}
+
+.spice {
+    width: 210px;
+    opacity: 0;
+    transform: translate(-200px, -200px) rotate(0deg);
+    animation: fall 1s ease-in-out forwards;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Clase para ocultar con animación */
+.spice.hidden {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* Configuración individual para cada especia en diagonal */
+.oregano {
+    animation-delay: 0s; /* Retraso para la animación del orégano */
+}
+
+.aji {
+    animation-delay: 0s; /* Retraso para la animación del ají molido */
+}
+
+/*======================================================================================*/
 /*SECCION LOCAL*/
 .local-images {
     display: flex;
@@ -147,6 +207,7 @@ body {
     margin: 0 auto; /* Centra el contenedor */
     padding: 20px;
     position: relative;
+    z-index: 3000;
 }
 
 .local-images img {
@@ -192,6 +253,7 @@ body {
 
 .map-link {
     margin-top: 20px; /* Espacio superior para el ícono */
+    z-index: 3000;
 }
 
 .map-icon {
@@ -201,10 +263,12 @@ body {
     box-shadow: 100px;
     border-radius: 5px; /* Bordes redondeados opcional */
     transition: transform 0.3s ease; /* Transición suave */
+    z-index: 3000;
 }
 
 .map-icon:hover {
     transform: scale(1.1); /* Aumenta el tamaño al pasar el ratón */
+    z-index: 3000;
 }
 
 /*======================================================================================*/
@@ -257,3 +321,14 @@ body {
 /*======================================================================================*/
 /*SECCION CONTACTO*/
 
+/*======================================================================================*/
+/*MANTELES*/
+/* Manteles en las esquinas */
+.mantel {
+    position: fixed;
+    width: 1px; /* Ajusta el tamaño del mantel según sea necesario */
+    height: 1px;
+    background-color: red; /* Color rojo para los manteles */
+    z-index: 2000; /* Asegura que estén por encima de otros elementos */
+    opacity: 1; /* Manteles semi-transparentes */
+}
