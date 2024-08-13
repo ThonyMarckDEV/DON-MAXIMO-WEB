@@ -233,7 +233,6 @@ function changeMantelImage() {
 
     const mobileMediaQuery = window.matchMedia("(max-width: 767px)");
     const tabletMediaQuery = window.matchMedia("(min-width: 768px) and (max-width: 990px)");
-    const pcMediaQuery = window.matchMedia("(min-width: 991px)");
 
     // Función para manejar la pantalla de CELULAR
     function handleMobileScreen(event) {
@@ -251,23 +250,13 @@ function changeMantelImage() {
         }
     }
 
-    // Función para manejar la pantalla de PC
-    function handlePCScreen(event) {
-        if (event.matches) {
-            img.src = 'img/mantel-pc.png';
-            showSlides(".slideshow-inner", 840); // Ancho de la diapositiva para PC
-        }
-    }
-
     // Escuchar cambios en las media queries
     mobileMediaQuery.addListener(handleMobileScreen);
     tabletMediaQuery.addListener(handleTabletScreen);
-    pcMediaQuery.addListener(handlePCScreen);
 
     // Ejecutar al cargar la página
     handleMobileScreen(mobileMediaQuery);
     handleTabletScreen(tabletMediaQuery);
-    handlePCScreen(pcMediaQuery);
 }
 
 // Llama a la función de cambio de imagen al cargar la página
