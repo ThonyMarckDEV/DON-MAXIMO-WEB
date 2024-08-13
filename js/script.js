@@ -172,3 +172,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(homeSection);
 });
+
+
+window.onload = function() {
+    var pizzaImages = [
+        'img/pizza.png',
+        'img/pizza2.png',
+        'img/pizza3.png',
+        'img/pizza4.png'
+    ];
+
+    var randomIndex = Math.floor(Math.random() * pizzaImages.length);
+    document.getElementById('pizzaImage').src = pizzaImages[randomIndex];
+};
