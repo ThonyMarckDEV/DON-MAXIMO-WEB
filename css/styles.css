@@ -34,8 +34,9 @@ html {
 }
 
 .pizza {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ajusta la pizza al ancho del contenedor */
+    max-width: 500px; /* Asegura un tamaño máximo para la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
     transition: transform 0.5s ease-in-out; /* Transición suave para la imagen */
     animation: floating 3s ease-in-out infinite; /* Animación de flotación continua */
 }
@@ -51,7 +52,6 @@ html {
         transform: translateY(0); /* Vuelve a la posición original */
     }
 }
-
 /*======================================================================================*/
 /*BARRA NAVEGACION*/
 .navbar {
