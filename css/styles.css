@@ -12,7 +12,8 @@ html {
 
 .logoDM {
     margin-top: 10px;
-    height: 400px;
+    height: 500px;
+    animation: floating 3s ease-in-out infinite; /* Añade la animación de flotación */
 }
 
 /* Clase para desactivar la animación inicialmente */
@@ -227,34 +228,35 @@ html {
     border-radius: 10px; /* Bordes redondeados para simular fotos instantáneas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de la imagen */
     object-fit: cover; /* Asegura que la imagen cubra el área del contenedor sin distorsionarse */
-    transition: transform 0.3s ease-in-out; /* Transición para efectos de hover */
+    transition: transform 0.3s ease-in-out;
+    animation: scaleUpDown 4s ease-in-out infinite; /* Añade la animación de escalado */
 }
 
-.local-images img:hover {
-    transform: scale(1.05); /* Aumenta ligeramente la imagen al pasar el ratón */
+/* Definición de la animación */
+@keyframes scaleUpDown {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
-/* Alineación de las imágenes */
-.local-images img:nth-child(1),
+/* Delay específico para cada imagen */
+.local-images img:nth-child(1) {
+    animation-delay: 0s;
+}
+
 .local-images img:nth-child(2) {
-    margin-right: 20px; /* Espacio entre las imágenes */
+    animation-delay: 1s;
 }
 
-.local-images img:nth-child(3),
-.local-images img:nth-child(4) {
-    margin-left: 20px; /* Espacio entre las imágenes */
-}
-
-.local-images img:nth-child(1),
 .local-images img:nth-child(3) {
-    /* Imágenes a la izquierda */
-    align-self: flex-start;
+    animation-delay: 2s;
 }
 
-.local-images img:nth-child(2),
 .local-images img:nth-child(4) {
-    /* Imágenes a la derecha */
-    align-self: flex-end;
+    animation-delay: 3s;
 }
 
 .text1local{
@@ -274,6 +276,7 @@ html {
     border-radius: 5px; /* Bordes redondeados opcional */
     transition: transform 0.3s ease; /* Transición suave */
     z-index: 3000;
+    animation: floating 3s ease-in-out infinite; /* Añade la animación de flotación */
 }
 
 .map-icon:hover {
@@ -336,6 +339,7 @@ html {
     height: 750px;
     width: 1100px;
     margin-top: -20px;
+    animation: floating 3s ease-in-out infinite; /* Añade la animación de flotación */
 }
 
 .delivery-message {
@@ -410,9 +414,44 @@ html {
 /*SECCION CONTACTO*/
 .text1contacto{
     color: white;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+    z-index: 3000;
+}
+
+.facebook, .instagram, .whatsapp {
+    width: auto;
+    animation: floating 3s ease-in-out infinite; /* Añade la animación de flotación */
+}
+
+.facebook {
+    width: 130px;
+}
+
+.instagram {
+    width: 100px;
+}
+
+.whatsapp {
+    width: 160px;
+}
+
+/* Animación de flotación */
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0) scale(1); /* Asegura que el scale sea el predeterminado */
+    }
+    50% {
+        transform: translateY(-10px) scale(1); /* Mantén el scale en 1 durante la animación */
+    }
+}
 
 .llamando {
     position: fixed;
@@ -454,7 +493,6 @@ html {
 .hidden {
     display: none;
 }
-
 
 
 /*======================================================================================*/
