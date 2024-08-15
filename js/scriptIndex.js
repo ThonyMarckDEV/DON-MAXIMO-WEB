@@ -93,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//ANIMACION PIDELA POR DELIVERY
+
+
 
 
 // ANIMACION DELIVERY   
