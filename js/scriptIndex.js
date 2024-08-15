@@ -175,34 +175,95 @@
         var randomIndex = Math.floor(Math.random() * pizzaImages.length);
         document.getElementById('pizzaImage').src = pizzaImages[randomIndex];
 
-        // Función para cambiar la imagen del mantel
-        function changeMantelImage() {
-            const img = document.getElementById('mantel-img');
-            const mobileMediaQuery = window.matchMedia("(max-width: 767px)");
-            const tabletMediaQuery = window.matchMedia("(min-width: 768px) and (max-width: 990px)");
+       
+    });
 
-            function handleScreenChange() {
-                if (mobileMediaQuery.matches) {
-                    img.src = 'img/mantel-movil.png';
-                    showSlides(".slideshow-inner", 421);
-                } else if (tabletMediaQuery.matches) {
-                    img.src = 'img/mantel-tablet.png';
-                    showSlides(".slideshow-inner", 925);
+
+
+               // Función para manejar la pantalla de TABLET
+               function handleTabletScreen(event) {
+                if (event.matches) {
+                let slideIndex = 0;
+                showSlides(".slideshow-inner", 925); // Ancho de la diapositiva para TABLET
                 } else {
-                    // Valor predeterminado o para pantallas grandes
-                    img.src = 'img/mantel-pc.png'; // Asegúrate de tener esta imagen
-                    showSlides(".slideshow-inner", 925); // Ajusta según la necesidad
+                // Puedes hacer algo si la media query deja de cumplirse
                 }
             }
+          
+            // Función para manejar la pantalla de CELULAR
+            function handleMobileScreen(event) {
+                if (event.matches) {
+                let slideIndex = 0;
+                showSlides(".slideshow-inner", 421); // Ancho de la diapositiva para CELULAR
+                } else {
+                // Puedes hacer algo si la media query deja de cumplirse
+                }
+            }
+          
+            // Función para manejar la pantalla de PC
+            function handlePCScreen(event) {
+                if (event.matches) {
+                let slideIndex = 0;
+                showSlides(".slideshow-inner", 840); // Ancho de la diapositiva para PC
+                } else {
+                // Puedes hacer algo si la media query deja de cumplirse
+                }
+            }
+        
+        
+            // Listeners de media query para TABLET, CELULAR y PC
+            const tabletMediaQuery = window.matchMedia("(min-width: 768px)");
+            tabletMediaQuery.addListener(handleTabletScreen);
+            handleTabletScreen(tabletMediaQuery);
+        
+            const mobileMediaQuery = window.matchMedia("(max-width: 767px)");
+            mobileMediaQuery.addListener(handleMobileScreen);
+            handleMobileScreen(mobileMediaQuery);
+        
+            const pcMediaQuery = window.matchMedia("(min-width: 991px)");
+            pcMediaQuery.addListener(handlePCScreen);
+            handlePCScreen(pcMediaQuery);
+        
+        
+            function changeMantelImage() {
+                const img = document.getElementById('mantel-img');
+        
+                const mobileMediaQuery = window.matchMedia("(max-width: 767px)");
+                const tabletMediaQuery = window.matchMedia("(min-width: 768px) and (max-width: 990px)");
+        
+                // Función para manejar la pantalla de CELULAR
+                function handleMobileScreen(event) {
+                    if (event.matches) {
+                        img.src = 'img/mantel-movil.png';
+                        showSlides(".slideshow-inner", 421); // Ancho de la diapositiva para CELULAR
+                    }
+                }
+        
+                // Función para manejar la pantalla de TABLET
+                function handleTabletScreen(event) {
+                    if (event.matches) {
+                        img.src = 'img/mantel-tablet.png';
+                        showSlides(".slideshow-inner", 925); // Ancho de la diapositiva para TABLET
+                    }
+                }
+        
+                // Escuchar cambios en las media queries
+                mobileMediaQuery.addListener(handleMobileScreen);
+                tabletMediaQuery.addListener(handleTabletScreen);
+        
+                // Ejecutar al cargar la página
+                handleMobileScreen(mobileMediaQuery);
+                handleTabletScreen(tabletMediaQuery);
+            }
+        
+            // Llama a la función de cambio de imagen al cargar la página
+            window.addEventListener('load', changeMantelImage);
+        
+            // Ejemplo de la función showSlides (debes definirla con tu lógica)
+            function showSlides(containerClass, slideWidth) {
+                // Lógica para mostrar las diapositivas según el contenedor y el ancho especificado
+                console.log(`Mostrando diapositivas en ${containerClass} con ancho ${slideWidth}px`);
+            }
+        
+        
 
-            // Ejecutar la función inmediatamente para aplicar el fondo correcto al cargar la página
-            handleScreenChange();
-
-            // Añadir listeners a las consultas de medios
-            mobileMediaQuery.addListener(handleScreenChange);
-            tabletMediaQuery.addListener(handleScreenChange);
-        }
-
-        // Ejecutar la función al cargar la ventana
-        window.addEventListener('load', changeMantelImage);
-    });
