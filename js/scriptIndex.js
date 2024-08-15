@@ -93,6 +93,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//ANIMACION PIDELA POR DELIVERY
+document.addEventListener('DOMContentLoaded', function () {
+    const deliverySection = document.querySelector('#delivery');
+    const deliveryMessage = document.querySelector('.delivery-message');
+
+    const deliveryObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                deliveryMessage.classList.add('visible'); // Añade la clase para mostrar el mensaje
+            } else {
+                deliveryMessage.classList.remove('visible'); // Quita la clase para ocultar el mensaje
+            }
+        });
+    }, {
+        threshold: 0.7 // Activar mensaje
+    });
+
+    deliveryObserver.observe(deliverySection);
+});
 
 
 // ANIMACION DELIVERY   

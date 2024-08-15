@@ -229,7 +229,7 @@ body {
     /* Contenedor de especias */
     .spices-container {
         position: fixed;
-        top: 30px;
+        top: 150px;
         left: 0;
         display: flex;
         flex-direction: column;
