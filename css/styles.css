@@ -229,7 +229,7 @@ body {
     /* Contenedor de especias */
     .spices-container {
         position: fixed;
-        top: 150px;
+        top: 30px;
         left: 0;
         display: flex;
         flex-direction: column;
@@ -237,6 +237,7 @@ body {
         gap: 10px; /* Espacio entre las imágenes */
         z-index: 3000; /* Asegura que esté encima de otros elementos */
     }
+
     /* Animación de aparición en diagonal */
     @keyframes fall {
         0% {
@@ -248,7 +249,7 @@ body {
             transform: translate(50px, 10px) rotate(30deg);
         }
     }
-    
+
     /* Animación de desaparición */
     @keyframes fadeOut {
         0% {
@@ -260,27 +261,18 @@ body {
             transform: translate(-200px, -200px) rotate(0deg);
         }
     }
-    
+
     .spice {
         width: 210px;
-        opacity: 0;
-        transform: translate(-200px, -200px) rotate(0deg);
-        animation: fall 1s ease-in-out forwards;
+        opacity: 1; /* Inicialmente visibles */
+        transform: translate(50px, 10px) rotate(30deg); /* Posición final de la animación de entrada */
+        animation: fall 1s ease-in-out forwards; /* Animación de aparición */
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    
+
     /* Clase para ocultar con animación */
     .spice.hidden {
-        animation: fadeOut 0.5s ease-in-out forwards;
-    }
-    
-    /* Configuración individual para cada especia en diagonal */
-    .oregano {
-        animation-delay: 0s; /* Retraso para la animación del orégano */
-    }
-    
-    .aji {
-        animation-delay: 1s; /* Retraso para la animación del ají molido */
+        animation: fadeOut 0.5s ease-in-out forwards; /* Animación de desaparición */
     }
     
     /*======================================================================================*/
@@ -383,21 +375,25 @@ body {
             }
         }
     
-    .tenedor {
-        position: fixed;
-        top: 10px;
-        left: -210px; /* Inicia fuera de la pantalla a la izquierda */
-        z-index: 3000;
-        animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+    /* Imagen del tenedor inicial oculto */
+   .tenedor {
+    opacity: 0; /* Oculta la imagen inicialmente */
+    position: fixed;
+    top: 10px;
+    left: -210px; /* Inicia fuera de la pantalla a la izquierda */
+    z-index: 3000;
+    transform: translate(-300px, 300px) rotate(-45deg); /* Inicia fuera de la pantalla con rotación */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transición suave para la animación */
     }
-    
+
     .tenedor-serrucho {
         width: 600px;
         transform: rotate(-190deg); /* Mantén la rotación diagonal */
     }
     
+
     /* Animación de entrada en diagonal de izquierda a derecha */
-    @keyframes enter-diagonal {
+    @keyframes enter-diagonal-local {
         0% {
             opacity: 0;
             transform: translate(-300px, 300px) rotate(-45deg); /* Inicia desde fuera de la pantalla a la izquierda */
@@ -407,9 +403,9 @@ body {
             transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
         }
     }
-    
-    /* Animación de desaparición en diagonal hacia abajo */
-    @keyframes exit-diagonal {
+
+    /* Animación de salida en diagonal hacia abajo */
+    @keyframes exit-diagonal-local {
         0% {
             opacity: 1;
             transform: translate(0px, 0px) rotate(-45deg); /* Inicia desde su posición final */
@@ -419,11 +415,17 @@ body {
             transform: translate(-300px, 300px) rotate(-45deg); /* Termina fuera de la pantalla en diagonal */
         }
     }
-    
-    .hidden {
-        display: none;
+
+    /* Clase para mostrar el tenedor con animación de entrada */
+    .show-tenedor {
+        animation: enter-diagonal-local 1s ease-in-out forwards;
     }
-    
+
+    /* Clase para ocultar el tenedor con animación de salida */
+    .hide-tenedor {
+        animation: exit-diagonal-local 1s ease-in-out forwards;
+    }
+
     /*======================================================================================*/
     /*SECCION LOCAL*/
     
@@ -470,14 +472,15 @@ body {
     
     
     .delivery {
+        opacity: 0;
         position: fixed;
         top: 50px;
         left: -50px; /* Inicia fuera de la pantalla a la izquierda */
         z-index: 3000;
-        animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transiciones suaves */
     }
     
-    .delivery-moto{
+    .delivery-moto {
         width: 450px;
         transform: rotate(-300deg); /* Mantén la rotación diagonal */
     }
@@ -490,11 +493,11 @@ body {
         }
         100% {
             opacity: 1;
-            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final */
         }
     }
     
-    /* Animación de desaparición en diagonal hacia abajo */
+    /* Animación de salida en diagonal hacia abajo */
     @keyframes exit-diagonal-deli {
         0% {
             opacity: 1;
@@ -506,8 +509,14 @@ body {
         }
     }
     
-    .hidden {
-        display: none;
+    /* Clase para mostrar el elemento con animación de entrada */
+    .show-delivery {
+        animation: enter-diagonal-deli 1s ease-in-out forwards;
+    }
+    
+    /* Clase para ocultar el elemento con animación de salida */
+    .hide-delivery {
+        animation: exit-diagonal-deli 1s ease-in-out forwards;
     }
     
     /*======================================================================================*/
@@ -561,14 +570,16 @@ body {
     }
     
     .llamando {
+        opacity: 0; /* Oculta la imagen inicialmente */
         position: fixed;
         top: 90px;
         left: -130px; /* Inicia fuera de la pantalla a la izquierda */
         z-index: 3000;
-        animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transiciones suaves */
     }
     
-    .llamando-persona{
+    /* Estilos para la imagen dentro de .llamando */
+    .llamando-persona {
         width: 490px;
         transform: rotate(-280deg); /* Mantén la rotación diagonal */
     }
@@ -581,11 +592,11 @@ body {
         }
         100% {
             opacity: 1;
-            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final */
         }
     }
     
-    /* Animación de desaparición en diagonal hacia abajo */
+    /* Animación de salida en diagonal hacia abajo */
     @keyframes exit-diagonal-persona {
         0% {
             opacity: 1;
@@ -597,11 +608,15 @@ body {
         }
     }
     
-    .hidden {
-        display: none;
+    /* Clase para mostrar el elemento con animación de entrada */
+    .show-llamando {
+        animation: enter-diagonal-persona 1s ease-in-out forwards;
     }
     
-    
+    /* Clase para ocultar el elemento con animación de salida */
+    .hide-llamando {
+        animation: exit-diagonal-persona 1s ease-in-out forwards;
+    }
     /*======================================================================================*/
     /*SECCION CONTACTO*/
     
@@ -627,10 +642,6 @@ body {
 /* ==========================================*/
 /* PC */
 @media (min-width: 991px) {
-
-    .mantel img {
-        content: url('img/mantel-pc.png');
-    }
 
     html {
         scroll-behavior: smooth;
@@ -844,7 +855,7 @@ body {
     
     /*======================================================================================*/
     /*SECCION HOME */
-    /* Contenedor de especias */
+  /* Contenedor de especias */
     .spices-container {
         position: fixed;
         top: 30px;
@@ -855,6 +866,7 @@ body {
         gap: 10px; /* Espacio entre las imágenes */
         z-index: 3000; /* Asegura que esté encima de otros elementos */
     }
+
     /* Animación de aparición en diagonal */
     @keyframes fall {
         0% {
@@ -866,7 +878,7 @@ body {
             transform: translate(50px, 10px) rotate(30deg);
         }
     }
-    
+
     /* Animación de desaparición */
     @keyframes fadeOut {
         0% {
@@ -878,29 +890,20 @@ body {
             transform: translate(-200px, -200px) rotate(0deg);
         }
     }
-    
+
     .spice {
         width: 210px;
-        opacity: 0;
-        transform: translate(-200px, -200px) rotate(0deg);
-        animation: fall 1s ease-in-out forwards;
+        opacity: 1; /* Inicialmente visibles */
+        transform: translate(50px, 10px) rotate(30deg); /* Posición final de la animación de entrada */
+        animation: fall 1s ease-in-out forwards; /* Animación de aparición */
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    
+
     /* Clase para ocultar con animación */
     .spice.hidden {
-        animation: fadeOut 0.5s ease-in-out forwards;
+        animation: fadeOut 0.5s ease-in-out forwards; /* Animación de desaparición */
     }
-    
-    /* Configuración individual para cada especia en diagonal */
-    .oregano {
-        animation-delay: 0s; /* Retraso para la animación del orégano */
-    }
-    
-    .aji {
-        animation-delay: 1s; /* Retraso para la animación del ají molido */
-    }
-    
+        
     /*======================================================================================*/
     /*SECCION LOCAL*/
     .local-images {
@@ -979,21 +982,25 @@ body {
         z-index: 3000;
     }
     
-    .tenedor {
-        position: fixed;
-        top: 10px;
-        left: -210px; /* Inicia fuera de la pantalla a la izquierda */
-        z-index: 3000;
-        animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+   /* Imagen del tenedor inicial oculto */
+   .tenedor {
+    position: fixed;
+    top: 10px;
+    left: -210px; /* Inicia fuera de la pantalla a la izquierda */
+    z-index: 3000;
+    opacity: 0; /* Oculta la imagen inicialmente */
+    transform: translate(-300px, 300px) rotate(-45deg); /* Inicia fuera de la pantalla con rotación */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transición suave para la animación */
     }
-    
+
     .tenedor-serrucho {
         width: 600px;
         transform: rotate(-190deg); /* Mantén la rotación diagonal */
     }
     
+
     /* Animación de entrada en diagonal de izquierda a derecha */
-    @keyframes enter-diagonal {
+    @keyframes enter-diagonal-local {
         0% {
             opacity: 0;
             transform: translate(-300px, 300px) rotate(-45deg); /* Inicia desde fuera de la pantalla a la izquierda */
@@ -1003,9 +1010,9 @@ body {
             transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
         }
     }
-    
-    /* Animación de desaparición en diagonal hacia abajo */
-    @keyframes exit-diagonal {
+
+    /* Animación de salida en diagonal hacia abajo */
+    @keyframes exit-diagonal-local {
         0% {
             opacity: 1;
             transform: translate(0px, 0px) rotate(-45deg); /* Inicia desde su posición final */
@@ -1015,10 +1022,17 @@ body {
             transform: translate(-300px, 300px) rotate(-45deg); /* Termina fuera de la pantalla en diagonal */
         }
     }
-    
-    .hidden {
-        display: none;
+
+    /* Clase para mostrar el tenedor con animación de entrada */
+    .show-tenedor {
+        animation: enter-diagonal-local 1s ease-in-out forwards;
     }
+
+    /* Clase para ocultar el tenedor con animación de salida */
+    .hide-tenedor {
+        animation: exit-diagonal-local 1s ease-in-out forwards;
+    }
+
     
     /*======================================================================================*/
     /*SECCION LOCAL*/
@@ -1064,14 +1078,15 @@ body {
     
     
     .delivery {
+        opacity: 0;
         position: fixed;
         top: 50px;
         left: -50px; /* Inicia fuera de la pantalla a la izquierda */
         z-index: 3000;
-        animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transiciones suaves */
     }
     
-    .delivery-moto{
+    .delivery-moto {
         width: 450px;
         transform: rotate(-300deg); /* Mantén la rotación diagonal */
     }
@@ -1084,11 +1099,11 @@ body {
         }
         100% {
             opacity: 1;
-            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final */
         }
     }
     
-    /* Animación de desaparición en diagonal hacia abajo */
+    /* Animación de salida en diagonal hacia abajo */
     @keyframes exit-diagonal-deli {
         0% {
             opacity: 1;
@@ -1100,10 +1115,16 @@ body {
         }
     }
     
-    .hidden {
-        display: none;
+    /* Clase para mostrar el elemento con animación de entrada */
+    .show-delivery {
+        animation: enter-diagonal-deli 1s ease-in-out forwards;
     }
     
+    /* Clase para ocultar el elemento con animación de salida */
+    .hide-delivery {
+        animation: exit-diagonal-deli 1s ease-in-out forwards;
+    }
+
     /*======================================================================================*/
     /*SECCION DELIVEY*/
     
@@ -1152,14 +1173,16 @@ body {
     }
     
     .llamando {
+        opacity: 0; /* Oculta la imagen inicialmente */
         position: fixed;
         top: 90px;
         left: -130px; /* Inicia fuera de la pantalla a la izquierda */
         z-index: 3000;
-        animation: enter-diagonal 1s ease-in-out forwards; /* Aparece en diagonal */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Transiciones suaves */
     }
     
-    .llamando-persona{
+    /* Estilos para la imagen dentro de .llamando */
+    .llamando-persona {
         width: 490px;
         transform: rotate(-280deg); /* Mantén la rotación diagonal */
     }
@@ -1172,11 +1195,11 @@ body {
         }
         100% {
             opacity: 1;
-            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final, en diagonal */
+            transform: translate(0px, 0px) rotate(-45deg); /* Termina en su posición final */
         }
     }
     
-    /* Animación de desaparición en diagonal hacia abajo */
+    /* Animación de salida en diagonal hacia abajo */
     @keyframes exit-diagonal-persona {
         0% {
             opacity: 1;
@@ -1188,10 +1211,15 @@ body {
         }
     }
     
-    .hidden {
-        display: none;
+    /* Clase para mostrar el elemento con animación de entrada */
+    .show-llamando {
+        animation: enter-diagonal-persona 1s ease-in-out forwards;
     }
     
+    /* Clase para ocultar el elemento con animación de salida */
+    .hide-llamando {
+        animation: exit-diagonal-persona 1s ease-in-out forwards;
+    }
     
     /*======================================================================================*/
     /*SECCION CONTACTO*/
