@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sección Desplazable</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styleMobile.css">
+    <link rel="stylesheet" href="css/stylePC.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=New+Amsterdam&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <nav class="navbar">
         <ul>
@@ -17,12 +28,12 @@
         </ul>
     </nav>
 
-        <!-- Mantel en las esquinas -->
-        <div class="mantel">
-            <img id="mantel-img" src="img/mantel-pc.png" alt="Mantel">
-        </div>
+    <!-- Mantel en las esquinas -->
+    <div class="mantel">
+        <img class="mantel-img" src="img/mantel-pc.png" alt="Mantel">
+    </div>
 
-       <div id="home" class="section home-section">
+    <div id="home" class="section home-section">
         <img src="img/DMlogo.png" alt="Logo" class="logoDM">
         <div class="pizza-container">
             <img id="pizzaImage" src="img/pizza.png" alt="Pizza" class="pizza">
@@ -37,7 +48,7 @@
     </div>
 
     <div id="local" class="section local-section">
-        <h1 class="text1local">Disfrútala en el local!!</h1>
+        <h1 class="text1local">¡Disfrutala en nuestro local!</h1>
 
         <div class="local-images">
             <div class="local-images-top">
@@ -52,8 +63,7 @@
 
         <div class="map-link">
             <a href="https://maps.app.goo.gl/9MkCUPu2kgWLun3MA" target="_blank">
-                <img src="img/google-maps-icon.png" alt="Google Maps Icon" class="map-icon">
-            </a>
+                <img src="img/google-maps-icon.png" alt="Google Maps Icon" class="map-icon"></a>
         </div>
 
         <div class="tenedor">
@@ -66,8 +76,8 @@
     </div>
 
     <div id="delivery" class="section">
-        <h1 class="text1delivery">O...</h1>
-        <div class="delivery-message">¡PÍDELA POR DELIVERY!</div>
+        <div class="delivery-message delivery-message-left">O...</div>
+        <div class="delivery-message delivery-message-right">¡PIDELA POR DELIVERY!</div>
         <div class="delivery">
             <img src="img/delivery.png" alt="tenedor" class="delivery-moto">
         </div>
@@ -80,9 +90,11 @@
     <div id="contacto" class="section">
         <h1 class="text1contacto">Contacto</h1>
         <div id="redes" class="redes-sociales">
-            <a href="https://www.facebook.com/donmaximopizzas" target="_blank"><img src="img/facebook.png" class="facebook"></a>
+            <a href="https://www.facebook.com/donmaximopizzas" target="_blank"><img src="img/facebook.png"
+                    class="facebook"></a>
             <a href="https://w.app/Gj1Vw5" target="_blank"><img src="img/whatsapp.png" class="whatsapp"></a>
-            <a href="https://www.instagram.com/donmaximotalara" target="_blank"><img src="img/instagram.png" class="instagram"></a>
+            <a href="https://www.instagram.com/donmaximotalara" target="_blank"><img src="img/instagram.png"
+                    class="instagram"></a>
         </div>
         <button class="scroll-btn scroll-btn-contacto" data-target="#home">
             <img src="img/flechaarriba.png" alt="Arrow">
@@ -94,4 +106,5 @@
 
     <script src="js/scriptIndex.js"></script>
 </body>
+
 </html>

@@ -154,6 +154,8 @@ window.addEventListener('load', () => {
             console.log('Aplicando animación de entrada a la sección delivery');
             document.querySelector('.delivery').classList.add('show-delivery');
             document.querySelector('.delivery').classList.remove('hide-delivery');
+
+            
         }
         if (section.id === 'contacto') {
             console.log('Aplicando animación de entrada a la sección contacto');
@@ -200,19 +202,22 @@ window.addEventListener('load', () => {
 
     // Observador para mostrar mensaje en delivery
     const deliverySection = document.querySelector('#delivery');
-    const deliveryMessage = document.querySelector('.delivery-message');
+    const deliveryMessageLeft = document.querySelector('.delivery-message-left');
+    const deliveryMessageRight = document.querySelector('.delivery-message-right');
 
-    if (deliverySection && deliveryMessage) {
+    if (deliverySection) {
         const deliveryObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    deliveryMessage.classList.add('visible');
+                    deliveryMessageLeft.classList.add('visible');
+                    deliveryMessageRight.classList.add('visible');
                 } else {
-                    deliveryMessage.classList.remove('visible');
+                    deliveryMessageLeft.classList.remove('visible');
+                    deliveryMessageRight.classList.remove('visible');
                 }
             });
         }, {
-            threshold: 0.7
+            threshold: 0.85
         });
 
         deliveryObserver.observe(deliverySection);
