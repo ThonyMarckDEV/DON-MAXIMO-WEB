@@ -8,6 +8,23 @@ function scrollToHome() {
 
 // Espera a que se cargue la ventana
 window.addEventListener('load', () => {
+
+
+    // Pantalla de carga se oculta después de 3 segundos
+    setTimeout(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        const pageContent = document.getElementById('page-content');
+
+        // Aplicar la transición de desvanecimiento
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.visibility = 'hidden';
+
+        // Esperar a que la transición termine antes de ocultar el elemento
+        setTimeout(() => {
+            loadingScreen.style.display = 'none'; // Asegúrate de que esté completamente oculto
+            pageContent.classList.add('show'); // Mostrar el contenido de la página
+        }, 1000); // Esperar la duración de la transición
+    }, 3000); // 3000 ms = 3 segundos
     // Desplazar automáticamente a la sección home al cargar la página
     scrollToHome();
 
