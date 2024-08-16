@@ -217,7 +217,7 @@ window.addEventListener('load', () => {
                 }
             });
         }, {
-            threshold: 0.5
+            threshold: 0.85
         });
 
         deliveryObserver.observe(deliverySection);
@@ -234,4 +234,3 @@ window.addEventListener('load', () => {
     const randomIndex = Math.floor(Math.random() * pizzaImages.length);
     document.getElementById('pizzaImage').src = pizzaImages[randomIndex];
 });
-

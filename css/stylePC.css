@@ -244,6 +244,9 @@ body {
         font-weight: 400;
         font-style: normal;
         font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .navbar ul {
@@ -252,10 +255,10 @@ body {
         padding: 0;
         display: flex;
         justify-content: center;
+        flex-grow: 1;
     }
 
     .navbar ul li {
-        display: inline;
         margin-right: 20px;
     }
 
@@ -266,6 +269,12 @@ body {
 
     .navbar ul li a:hover {
         color: orange;
+    }
+
+    /* Alineación del botón a la derecha */
+    .navbar-right {
+        margin-left: auto;
+        margin-right: 0;
     }
 
     /*======================================================================================*/
@@ -580,11 +589,11 @@ body {
         /* Transiciones suaves */
     }
 
-    .delivery-message-left{
+    .delivery-message-left {
         margin-right: 900px;
     }
 
-    .delivery-message-right{
+    .delivery-message-right {
         margin-left: 900px;
     }
 
