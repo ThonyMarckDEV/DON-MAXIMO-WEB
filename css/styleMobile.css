@@ -366,7 +366,7 @@
         align-items: center;
         max-width: 1200px;
         margin-top: 100px;
-        margin-left: -600px;
+        margin-left: -500px;
     }
 
     .local-images-top,
@@ -431,7 +431,7 @@
         color: white;
         margin-top: 100px;
         /* Espacio superior para el texto */
-        margin-left: -500px;
+        margin-left: -400px;
         z-index: 4000;
         font-size: 100px;
     }
@@ -447,7 +447,7 @@
         width: 100px;
         /* Tamaño del ícono */
         height: 100px;
-        margin-left: -300px;
+        margin-left: -240px;
         border-radius: 5px;
         /* Bordes redondeados opcional */
         transition: transform 0.3s ease;
