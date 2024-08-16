@@ -2,6 +2,15 @@
 /* Movil */
 @media (max-width: 767px) {
 
+    h1{
+        font-family: "Edu VIC WA NT Beginner", cursive;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+    .mantel .mantel-img {
+        content: url('../img/mantel-movil.png');
+        z-index: 3000;
+    }
 
     html {
         scroll-behavior: smooth;
@@ -219,6 +228,9 @@
     /*======================================================================================*/
     /*BARRA NAVEGACION*/
     .navbar {
+        font-family: "Edu VIC WA NT Beginner", cursive;
+        font-optical-sizing: auto;
+        font-style: normal;
         background-color: rgba(255, 255, 255, 0.014);
         /* Fondo semi-transparente */
         position: fixed;
@@ -420,17 +432,18 @@
         margin-top: 100px;
         /* Espacio superior para el texto */
         margin-left: -500px;
-        z-index: 3000;
+        z-index: 4000;
         font-size: 100px;
     }
 
     .map-container {
         margin-top: 20px;
+        z-index: 9000;
         /* Espacio superior para el ícono */
-        z-index: 3000;
     }
 
     .map-icon {
+        z-index: 9000;
         width: 100px;
         /* Tamaño del ícono */
         height: 100px;
