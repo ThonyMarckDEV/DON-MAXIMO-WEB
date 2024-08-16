@@ -12,6 +12,10 @@ body {
 /* PC */
 @media (min-width: 991px) {
 
+    .mantel .mantel-img {
+        content: url('../img/mantel-pc.png');
+    }
+
     html {
         scroll-behavior: smooth;
     }
