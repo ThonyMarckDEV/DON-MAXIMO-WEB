@@ -6,14 +6,12 @@ function scrollToHome() {
     }
 }
 
-// Espera a que se cargue la ventana
-window.addEventListener('load', () => {
 
 
-    // Pantalla de carga se oculta después de 3 segundos
+document.addEventListener('DOMContentLoaded', () => {
+    // Pantalla de carga se oculta después de 2 segundos
     setTimeout(() => {
         const loadingScreen = document.getElementById('loading-screen');
-        const pageContent = document.getElementById('page-content');
 
         // Aplicar la transición de desvanecimiento
         loadingScreen.style.opacity = '0';
@@ -22,11 +20,24 @@ window.addEventListener('load', () => {
         // Esperar a que la transición termine antes de ocultar el elemento
         setTimeout(() => {
             loadingScreen.style.display = 'none'; // Asegúrate de que esté completamente oculto
-            pageContent.classList.add('show'); // Mostrar el contenido de la página
+            // Detecta la página actual
+            const currentPath = window.location.pathname;
+            // Verifica si estás en la página "index.html"
+            if (currentPath.includes('nosotros.html')) {
+                document.body.style.overflow = 'auto'; // Habilita el scroll
+            }
+            // Verifica si estás en la página "nosotros.html"
+            else {
+                document.body.style.overflow = 'hidden'; // Deshabilita el scroll
+            }
         }, 1000); // Esperar la duración de la transición
-    }, 3000); // 3000 ms = 3 segundos
+    }, 2000); // 2000 ms = 2 segundos
     // Desplazar automáticamente a la sección home al cargar la página
     scrollToHome();
+});
+
+// Espera a que se cargue la ventana
+window.addEventListener('load', () => {
 
     document.querySelectorAll('.scroll-btn').forEach(button => {
         button.addEventListener('click', function () {
@@ -101,25 +112,48 @@ window.addEventListener('load', () => {
     // Función para manejar los clics en la navbar
     function handleNavbarClick(navLinksSelector) {
         const navLinks = document.querySelectorAll(navLinksSelector);
+        const currentPath = window.location.pathname;
 
         navLinks.forEach(link => {
+            let targetHref = link.getAttribute('href');
+
+            console.log("Directorio actual:", currentPath);
+
+            // Detectar si estamos en /front/nosotros.html
+            if (currentPath.includes('/front/nosotros.html')) {
+
+                // Modificar los enlaces internos para que apunten un nivel arriba
+                targetHref = `../${targetHref}`;
+
+                /*if (targetHref.startsWith('#')) {
+                    targetHref = `../index.html${targetHref}`;
+                }*/
+                link.setAttribute('href', targetHref);
+            }
+
             link.addEventListener('click', (event) => {
                 event.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
 
-                if (targetElement && currentSection) {
-                    // Aplica la animación de salida a la sección actual
-                    applyExitAnimation(currentSection);
+                if (targetHref.startsWith('#')) {
+                    // Enlace a una sección interna
+                    const targetElement = document.querySelector(targetHref);
 
-                    // Desplazar a la nueva sección inmediatamente
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    if (targetElement && currentSection) {
+                        // Aplica la animación de salida a la sección actual
+                        applyExitAnimation(currentSection);
 
-                    // Aplica la animación de entrada a la nueva sección sin esperar a que termine la salida
-                    applyEntryAnimation(targetElement);
+                        // Desplazar a la nueva sección inmediatamente
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
 
-                    // Actualiza la sección actual inmediatamente
-                    currentSection = targetElement;
+                        // Aplica la animación de entrada a la nueva sección sin esperar a que termine la salida
+                        applyEntryAnimation(targetElement);
+
+                        // Actualiza la sección actual inmediatamente
+                        currentSection = targetElement;
+                    }
+                } else {
+                    // Enlace a una página externa, redirige normalmente
+                    window.location.href = targetHref;
                 }
             });
         });
@@ -172,7 +206,7 @@ window.addEventListener('load', () => {
             document.querySelector('.delivery').classList.add('show-delivery');
             document.querySelector('.delivery').classList.remove('hide-delivery');
 
-            
+
         }
         if (section.id === 'contacto') {
             console.log('Aplicando animación de entrada a la sección contacto');
@@ -248,6 +282,6 @@ window.addEventListener('load', () => {
         'img/pizza4.png'
     ];
 
-    const randomIndex = Math.floor(Math.random() * pizzaImages.length);
-    document.getElementById('pizzaImage').src = pizzaImages[randomIndex];
+    //const randomIndex = Math.floor(Math.random() * pizzaImages.length);
+    //document.getElementById('pizzaImage').src = pizzaImages[randomIndex];
 });
