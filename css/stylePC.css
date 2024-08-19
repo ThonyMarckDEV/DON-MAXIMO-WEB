@@ -2,10 +2,14 @@
 /* PC */
 @media (min-width: 991px) {
 
+    .h1{
+        font-family: "Edu VIC WA NT Beginner", cursive;
+    }
+
     body {
         overflow: hidden;
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: "Edu VIC WA NT Beginner", cursive;
         overflow-x: hidden;
         scroll-behavior: smooth;
         /* Suaviza el desplazamiento en todo el documento */
@@ -344,7 +348,7 @@
         /* Aplica el desenfoque */
         -webkit-backdrop-filter: blur(10px);
         /* Para compatibilidad con Safari */
-        font-family: "New Amsterdam", sans-serif;
+        font-family: "Edu VIC WA NT Beginner", cursive;
         font-weight: 400;
         font-style: normal;
         font-size: 30px;
